@@ -1,0 +1,36 @@
+MyDiPy Version 1.2.1 by Danil Matsahor
+
+> What new?
+	- The program has been optimized for PEP 8.
+	- Content.txt has been transcoded from ASCII to UTF-8.
+	- Added Colorama for colored text.
+	Bug fix:
+	- Fixed problem with incorrect search by themes.
+
+> Why do I need a text content file "Content"?
+This is a dictionary in which all the contents are written, without it the program will not open.
+
+> Can I change the text?
+Yes! To do this, use special characters as described in the example below.
+#^~$# > after these characters is the name of the dictionary, but the name can only be written together.
+#@*?# > after these characters there is a dictionary code to open it, but the code can only be written 
+together. It is also used to open at the beginning and close at the end of the dictionary.
+#&:%# > after these characters is the name of the theme. After reappearance these characters is the name 
+of the storage. And so on in a circle until this symbol appears without a theme.
+> Caution! You can wrap to the next line, but do not separate the special characters " #^~$# ", " #@*?# " and " #&:%# ".
+Example:
+#@*?# #^~$# NAME_1 #@*?# CODE_1 #&:%# THEME 1 #&:%# STORAGE 1 #&:%# THEME 2 #&:%# STORAGE 2
+#&:%# THEME INFINITY #&:%# STORAGE INFINITY #&:%# #@*?# #^~$# NAME_2 #@*?# CODE_2 #&:%# TH
+EME INFINITY #&:%# STORAGE INFINITY #&:%# #@*?#
+ #^~$# NAME_INFINITY #@*?# CODE_INFINITY #&:%# THEME INF... #&:%# STORAGE INF... #&:%# #@*?#
+
+> How use program?
+When you open the console. That will list all the themes in the current dictionary. The current 
+default dictionary is the one who stands first in "Sorages.txt". After that, other dictionaries 
+and an access code to them are listed. When this is done, you can enter a theme or the contents 
+of this theme. Be sure to enter the whole word of the theme you need, uut for searching in 
+storage it's not obligatory. After entering the key word, the program will display all the storages 
+in which the word is, but if you entered the key theme, it will appear last in the list, then 
+the program will offer you to exit or continue the search.
+Bonus:
+You don't need to enter "n" to continue the program. Just press Enter to continue.

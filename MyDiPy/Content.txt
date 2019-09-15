@@ -1,0 +1,2165 @@
+﻿#@*?# #^~$# Python_course1 #@*?# 1643 #&:%# Операции с числами #&:%# 
+Операции		Результат
+x + y			прибавить x и y
+x - y			отнять x от y
+x * y			умножить x на y
+x / y			поделить x на y
+x // y			целочисельно поделить x на y
+x % y			остаток от x / y
+-x			x отрицательный
++x			x без изменений
+abs(x)			абсолютное значение или величина х
+int(x)			x конвертируется в целое число
+float(x)		x конвертируется в вещественное число (плавающую точку)
+complex(re, im)		комплексное число с действительной частью re, мнимой частью im. im по умолчанию ноль.
+c.conjugate()		сопряженное комплексное число с
+divmod(x, y)		пара (x // y, x % y)
+pow(x, y)		x в степени y
+x ** y			x в степени y #&:%# Типы данных #&:%# 
+Типы данных:
+Числовые
+	целые числа - int()
+	вещественные (с плавающей точкой) - float()
+	логические - bool()
+Строковые
+	строки - str()
+type() - определяет тип. Например:
+type(7.0) -> float
+input() - ввод данных #&:%# Логические операции #&:%# 
+Логические значения:
+False (0)
+True (1)
+Операции:
+x = 		y =		x or y:		x and y:	not x
+	0	|	0	|	0	|	0	|
+	0	|	1	|	1	|	0	|
+	1	|	0	|	1	|	0	|
+	1	|	1	|	1	|	1	| #&:%# Условия #&:%# 
+if x % 2 == 0:
+	print('Чётное')
+else
+	print('Нечётное')
+Найти наибольшее из двух чисел: #&:%# Строки #&:%# 
+Строки:
+'abc' + 'def'
+>>> 'abcdef'
+'abc' * 3
+>>> 'abcabcabc'
+len('abcdef')
+>>> 6
+Некоторые операции со строками:
+a = 4
+b = 7
+m = a
+if b > m:
+	m = b
+print(m) #&:%# Цикл while #&:%# 
+Цикл while:
+a = 5
+while a > 0:
+	print(a, end=' ')
+	a -= 1
+>>> 5 4 3 2 1
+
+c = 1
+while c <= 6:
+	print('*' * c)
+	c += 1
+>>>:	
+*
+**
+***
+****
+*****
+******
+
+Вычислите сумму целых чисел на отрезке от a до b:
+s = 0
+i = a
+while i <=b:
+	s += i
+	i += 1
+print(s)
+
+while True: # бесконечный цикл.
+break # досрочно завершаем цикл.
+continue # переходим к следующей итерации. #&:%# Цикл for #&:%# 
+Цикл for:
+for i in 2,3,5
+	print(i * i)
+>>>:	
+4
+9
+25
+for i in range(3)
+	print(i * i)
+>>>:
+0
+1
+4
+Вложенные циклы:
+n = int(input())
+for i in range(n):
+	for j in range(n)
+		print('*', end='')
+	print()
+>>>:
+***
+***
+***
+Вывести сумму всех нечётных чисел от a до b (включая обе границы):
+a, b = (int(i) for i in input().split())
+s=0
+if a % 2 == 0:
+	a+=1
+for i in range(a, b + 1, 2):
+	s+=i
+print(s) #&:%# Строки и символы #&:%# 
+Символы строки:
+s = 'LASS'
+s[0] = L	s[-1] = S
+s[1] = A	s[-2] = s
+s[2] = S	s[-3] = A
+s[3] = S	s[-4] = L
+i = 1
+print(s[1])
+>>> A
+for i in range(4):
+	print(s[i])
+>>>:
+L
+A
+S
+S
+Сколько раз S встречается в слове?
+Решение 1:
+cnt = 0
+for i in s:
+	if i == 'S':
+		cnt += 1
+print(cnt)
+>>> 2
+Решение 2:
+print(s.count('S')
+>>> 2
+
+Некоторые методы у строк:
+s = 'aTGcc' p='cc'
+- s.upper() -> 'ATGCC'
+- s.lower() -> 'atgcc'
+- s.count(p) -> 1 # сколько раз p встречается s
+- s.find(p) -> 3 # первое вхождение (индекс) p в s
+- s.find('A') -> -1 # строка 'A' не входит в s
+	• Проверка вхождения в строку: if 'TG' in s: ...
+- s.replace('c', 'C') -> 'aTGCC' #заменяем все вхождения 'c' на 'C', но строчка s неизменится!
+
+Последовательные вызовы методов:
+s = 'agTtcAGtc'
+	1-ый	3-ий	2-ой
+print(s.upper().count('gt'.upper()))
+>>> 2
+
+Slicing:
+dna = 'ATTCGGAGCT'
+dna[1] -> 'T'
+dna[1:4] -> 'TTC'
+dna[:4] -> 'ATTC'
+dna[4:] -> 'GGAGCT'
+dna[-4:] -> 'AGCT'
+dna[1:-1] -> 'TTCGGAGC'
+dna[1:-1:2] -> 'TCGG' (диапозон от 1 до -1 с шагом 2)
+dna[::-1] -> 'TCGAGGCTTA' (символы в обратном порядке) #&:%# Списки #&:%# 
+Списки:
+students = ['Ivan', 'Masha', 'Sasha']
+for student in students:
+	print("Hello, "+ student +"!")
+>>>Hello, Ivan!		# students[0]
+Hello, Masha!		# students[1]
+Hello, Sasha!		# students[2]
+
+Доступ к элементам списка:
+		0	1	2
+students = ['Ivan', 'Masha', 'Sasha']
+Длина спика: len(students)
+>>> 3
+
+students[0] -> 'Ivan'
+students[1] -> 'Masha'
+students[-1] - > 'Sasha'
+students[-3] -> 'Ivan'
+students[-2:] -> ['Masha', 'Sasha']
+students[::-1] -> ['Sasha', 'Masha', 'Ivan']
+
+Изменение списков:
+students[1] = 'Oleg'
+print(students)
+>>> ['Ivan', 'Oleg', 'Sasha']
+
+Добавление эелементов:
+s=[]
+s+=['Levi', 'Mikasa']
+print(s)
+>>> ['Levi', 'Mikasa']
+print(s.append('Levi'))
+>>> ['Levi', 'Mikasa', 'Levi']
+
+Поиск элемента в списке:
+s = ['Levi', 'Mikasa', 'Levi']
+if 'Mikasa' in s:
+	print(Yes!)
+if Ann not in s:
+	print(No!)
+>>>Yes!
+No!
+ind = s.index('Levi')
+print(ind)
+>>> 0
+
+Удаление элемента из списка:
+s.remove('Levi')
+>>> ['Mikasa', 'Levi']
+
+del s[0]
+>>> ['Levi']
+
+Сортировка списка:
+Не изменяя порядок изначального списка
+s = ['Levi', 'Zoro', 'Ann']
+f = sorted(s)
+print(f)
+>>> ['Ann', 'Levi', 'Zoro']
+Изменяя сам список
+s.sort()
+print(s)
+>>> ['Ann', 'Levi', 'Zoro']
+print(max(s))
+>>> Zoro
+print(min(s))
+>>> Ann
+
+Список в обратном порядке:
+s.reverse()
+print(s)
+>>> ['Zoro', 'Levi', 'Ann']
+reversed(s)
+s[::-1]
+
+Присвоение списков:
+a = [1, 'A', 2]
+b=a
+a[0] = 42
+print(a)
+print(b)
+>>>:
+[42, 'A', 2] # a ссылается к памяти [1, 'A', 2]
+[42, 'A', 2] # b привязан к a и тоже ссылается к той же памяти [1, 'A', 2]
+
+b[2] = 30
+print(a)
+print(b)
+>>>:
+[42, 'A', 30]
+[42, 'A', 30]
+
+Генераторы:
+a = [0] * 5
+a = [0 for i in range(5)
+a = [int(i) for i in input().split()]
+n = 3
+a = [[0] * n] * n
+a[0][0] = 5 ->	5-0-0 # генерирует три списка a с одинаковой ячейкой памяти: [5, 0, 0]
+		| | |
+		5-0-0
+		| | |
+		5-0-0
+a = [[0] * n for i in range(n)] # настоящий двухмерный список
+a[0][0] = 5 ->	5-0-0
+		| | |
+		0-0-0
+		| | |
+		0-0-0
+a = [[0 for j in range(n)] * n for i in range(n)] #&:%# Функции #&:%# 
+Объявление функции:
+def min2(a, b):			# после команды def идёт имя функии и его аргументы (параметры).
+	if a <=b:		# условие if в теле функции
+		return a	# вернуть a (ответом функции будет значение a)
+	else:			# -
+		return b	# -
+
+Произвольное число параметров:
+def min(a*):			# Может принять вызовы: min(5) или min(5, 3, [6, 10])
+	m=a[0]
+	for x in a:
+		if m > x:
+			m = x
+	return m
+
+Значение параметров по умолчанию:
+def my_range(start, stop, step=1):	# примеры:
+	res =[]				# print(my_range(2,5)
+	if step > 0:			# >>> [2, 3, 4]
+		x = start		# print(my_range(2, 15, 3))
+		while x < stop:		# >>> [2, 5, 8, 11, 14]
+			res += [x]	# print(my_range(15, 2, -3))
+			x += step	# >>> [15, 12, 9, 3]
+	elif step < 0:
+		x = start
+		while x > stop:
+			res += [x]
+			x += step
+	return res
+
+Изменение локальных переменных:
+def init_values():
+	a = 100
+
+a = 0
+init_values()
+print(a)
+>>> 0 	# a осталось со значением 0
+def init_values(a):
+	a = 100
+
+b = 0
+init_values(b)
+print(b)
+>>> 0	# в нутри функции мы не можем изменить значение, которые находиться снаружи, но:
+def append_zero(xs):
+	xs.append(0)	# xs ---¬
+			#	v
+a = []			# a -> []
+append_zero(a)
+print(a)
+>>> [0]	# потому-что мы связали xs с a, который обратился к тому же списку []
+def append_zero(xs):
+	xs.append(0)	# xs -----------¬
+	xs = [100]	# xs -> [100]	¦
+			#		v
+a = []			# a ----------> []
+append_zero(a)
+print(a)
+>>> [0] # потому-что xs создал свой собственный список [100]
+
+Глобальные переменные:
+def print_valuse():
+	print(a)
+
+a = 5			# глобальная переменная
+print_value()
+>>> 5 # функция ищёт переменную в глобальных перемынных.
+
+Глобальные и локальные переменные:
+def print_value():
+	print(a)	# программа выдаст ошибку, потому-что в начале функция ищет локальные переменные, а если не находит, то уже потом глобальные.
+	a = 10		# локальная переменная
+	print(a)
+
+a = 5			# глобальная переменная
+print_value()
+>>> UnboundLocalError: local variable 'a' referenced before assignment # локальная переменная 'a' указана перед присваиванием #&:%# Словари #&:%# 
+Множества:
+s = set() # создание пустого множества
+basket={'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+print(basket) # множество выводит елементы в произвольном порядке:
+>>> {'pear', 'orange', 'banana', 'apple'} # потому-что множество игнорирует одинаковые елементы('apple' и 'orange')
+
+Операции с множествами:
+s.add(element) # добавление елемента
+
+s.remove(element) # удаление елемента
+
+s.discard(element) # удаление елемента не вызывая ошибку, при её отсутсвии
+
+s.clear() # дословно очистить: удалить все елементы из множества
+
+len(s) # узнать количество елементов
+
+Перебор элементов множества
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+for x in basket:
+    print(x)
+>>>:
+apple
+orange
+pear
+banana
+
+Словари:
+Словать (dictionary), отображение (map), ассоциативный массив.
+Позволяет хранить пары <ключ, значение>.
+d = dict()
+d = {}
+d = {'a': 239, 10: 300}
+print(d['a'])		# обращение к словарю d с ключом 'a' - это как твой "собственный" индекс в списке.
+print(d[10])		# обращение к словарю d с ключом '10' - ключом(индексом) могут быть и цифры.
+>>>:
+239
+300
+
+Операции со словарями:
+dictonary = {}
+key in dictionary # True or False
+key not in dictionary # True or False
+dictionary[key] = value # меняем значение по такому-то ключу, или добавляем ключ со значением, если такого ключа нет.
+dictionary[key] # при попытке обратиться к ключу, которого нет в словаре, возникнет ошибка.
+dictionary.get(key) # при попытке обратиться к ключу, которого нет в словаре, вернёт значение None вместо ошибки.
+del dictionary[key] # удалить значение по ключу (и сам ключ тоже).
+
+Словари:
+Изменяемы # к ключу можно придать различные значение, например список: {'Telephone': ['calls', 'games']}
+Элементы не имеют порядка # так же как и множества
+Все ключи различны # если ключи одинаковы, то результатом будет только один из них, даже если значения в ключах разные.
+Ключи неизменяемы # могут быть только числами или строками, но не списками и т.п.
+
+Перебор элементов словаря:
+d = {'C': 14, 'A': 12, 'T': 9, 'G': 18}
+for key in d:
+    print(key, end=' ') 
+>>> C A T G
+for key in d.keys():
+    print(key, end=' ') 
+>>> C A T G
+for value in d.values():
+    print(value, end=' ')
+>>> 14 12 9 18
+for key, value in d.items():
+    print(key, value, end='; ')
+>>> C 14; A 12; T 9; G 18;
+
+Все следующие примеры возвращают словарь, равный {"one": 1, "two": 2, "three": 3}:
+>>> a = dict(one=1, two=2, three=3)
+>>> b = {'one': 1, 'two': 2, 'three': 3}
+>>> c = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
+>>> d = dict([('two', 2), ('one', 1), ('three', 3)])
+>>> e = dict({'three': 3, 'one': 1, 'two': 2})
+>>> a == b == c == d == e
+True #&:%# Интерпретатор #&:%# 
+Наглядно показано как изменить файл в .py и открыть его через терминал.
+Windows:
+Что бы открыть командную строку "cmd" воспользуйтесь поиском в виндоус или командой win+R.
+Если вбить команду python, то он выведет строки из версии установленного пайтона, его разрадность и т.д.
+Например:
+Python 3.4.1 ¦Continuum Analytics, Inc.¦ (default, Jun 11 2014, 17:27:11) [MSC v.1600 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+Если же такого непроизошло, значит неуказан путь к пайтону. Тогда можно открыть пройдя к папке, где установлен пайтон и вместо пути(находится возле поиска) "C:\Users\User\AppData\Local\Programs\Python\Python37-32" написать cmd и запустить его или открыть в путь в самом cmd указав его полный путь, например: "cd C:\Users\User\AppData\Local\Programs\Python\Python37-32".
+Советую включить этот путь по умолчанию, что бы не пришлось каждый раз искать, где находится пайтон. Что бы его указать нужно кликнуть правой копкой мыши на "Этот компьютер", затем свойства -> открыть "Дополнительные параметры системы" -> открыть "Переменные среды" -> в списке "Переменные среды пользователя User" кликнуть левой кнопкой мыше по "Path 	C:\Users\User\AppDat...", после нажать на "Изменить" -> нажать "Создать" и ввести путь к папке, где установлен Python (можно ещё создать несколько других путей, которые cmd будет автоматически открывать), после чего принять изменения нажатием "OK".
+Создайте текстовый документ(или любой с возможностью писать) и впишите туда:
+print("Введите a")
+a = int(input())
+print("Введите b")
+b = int(input())
+print(a + b)
+Сохраните текстовый документа как aplusb.py
+Откройте cmd и напишите команду python aplusb.py
+После чего проверте свою програму:
+Введите a
+2
+Введите b
+7
+9 #&:%# Файловый ввод/вывод #&:%# 
+Чтение из файла:
+inf = open('file.txt', 'r')  # open('file.txt')
+s1 = inf.readline()
+s2 = inf.readline()
+inf.close()
+with open('text.txt') as inf:
+    s1 = inf.readline()
+    s2 = inf.readline()
+    
+# здесь файл уже закрыт
+
+Пара полезных функций:
+string.strip(characters) # удаляет пробельные( ), строчные(\n) и табульные(\t) символы
+
+# with open('text.txt') as inf:
+# s = inf.readline().strip()
+print('\t abc \n'.strip())
+>>> abc
+
+import os
+print(os.path.join('.', 'dirname', 'filename.txt'))
+>>> .\\dirname\\filename.txt
+
+Построчное чтение из файла:
+with open('input.txt') as inf:
+    for line in inf:
+        line = line.strip()
+        print(line)
+
+Запись в файл:
+In []:
+ouf = open('file.txt', 'w')
+ouf.write('Some text\n')
+ouf.write(str(25))
+ouf.close()
+with open('text.txt', 'w') as ouf:
+    ouf.write('Some text\n')
+    ouf.write(str(25))
+
+# здесь файл уже закрыт #&:%# Модули #&:%# 
+Импорт модуля:
+Рассмотрим файл my_module.py
+Пусть в нём описана функция foo()
+
+import my_module # добавляем указаный модуль в нашу програму
+my_module.foo() # используем модуль с некой функцией foo()
+
+Импорт from
+from my_module import foo # импорт foo
+foo()
+
+from my_module import * # импорт всех функций и данных
+foo()
+
+from my_module import foo as my_foo # можно поменять имя функции для случаев, если например такое имя уже есть.
+my_foo()
+
+Аргументы командной строки
+Модуль sys
+sys.argv - список аргументов командной строки
+import sys
+print(len(sys.argv))
+> 1
+
+Запуск внешних процессов:
+Модуль subprocess
+subprocess.call(args, *, stdin=None, stdout=None, stderr=None, shell=False, timeout=None) # запускает программу в соответствии с аргументами (args). Дожидается выполнения и возвращает код возврата.
+Например:
+subprocess.call(["python", "-h"])
+> 0
+
+Стандартные модули:
+https://docs.python.org/3.7/py-modindex.html #&:%# Установка дополнительных модулей #&:%# 
+Windows:
+В командной строке cmd напишите команду pip install "NameModule" без кавычек, где NameModule - это имя нужного вам модуля.
+После установки можно импортировать его в программу.
+ #&:%# #@*?# #^~$# Python_course2 #@*?# 2788 #&:%# Модель данных: объекты #&:%# 
+► Индификатор объекта
+Получить индификатор - id()
+x = [1, 2, 3]
+print(id(x))
+>>> 2783992
+print(id([1, 2, 3]))
+>>> 2837040
+
+► Ссылаются ли две переменные на один объект можно оператором is:
+x = [1, 2, 3]
+y = x
+y is x
+>>> True
+y is [1, 2, 3]
+>>> False
+
+► Изменяется объект, а не переменная
+x = [1, 2, 3]
+y = x
+print(x)
+>>> [1, 2, 3, 4]
+print(y)
+>>> [1, 2, 3, 4]
+
+► Тип объекта не может быть изменён после создания объекта (как и индефекатор)
+► Узнать тип объекта можно с помощью функции type()
+x = [1, 2, 3]
+print(type(x))
+>>> <class 'list'>
+print(type(4))
+>>> <class 'int'>
+
+# here comes a mindblowing example
+print(type(type(x)))
+>>> <class 'type'>
+
+► Неизменяемые и изменяемые объекты
+Immutable	| Mutable
+----------------┼---------------		
+int		| list
+float		| dict
+complex		| set
+bool		|
+tuple		|
+str		|
+frozenset	|
+ #&:%# Функции и стек вызовов #&:%# 
+Функции: синтаксис
+
+# def -> define
+def funcion_name(argument1, argument2):
+    # function body
+    return argument1 + argument2
+x = function_name(2, 8)
+y = function_name(x, 21)
+print(y)
+>>> 31
+
+Функции: примеры
+
+def list_sum(lst):
+    result = 0
+    for element in lst:
+        result += element
+    return result
+
+def sum(a, b):
+    return  a + b
+
+y = sum(14, 29)
+z = list_sum([1, 2, 3])
+print(y)
+print(z)
+>>> 43
+>>> 6
+
+Стек вызовов
+
+def g():
+    print("I am in function g")
+
+def f():
+    print("I am in fucntion f")
+    g()
+    print("I am in function f")
+
+print("I am outside of any function")
+f()
+print("I am outside of any function")
+
+Пошаговое отоброжения заполения стека и освобождения:
+Шаг исполнения 1
+| 		|
+| 		|
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| print		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| module	|
+┕╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┙
+>>> I am outside of any function
+print выполнился и его убрали из стека.
+Шаг исполнения 2
+| 		|
+| 		|
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| print		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| f		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| module	|
+┕╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┙
+>>> I am in fucntion f
+print выполнился и его убрали из стека.
+Шаг исполнения 3
+| 		|
+| 		|
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| print		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| g		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| f		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| module	|
+┕╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┙
+Функции не исчезают, а выполняются в данный момент. Таким образом функция ждёт, пока сосед сверху выполнится. Реально исполняется только функция print. Таким образом стек вызовов отображает все функции которые исполняются в данный момент и кто-кого на самом деле ждёт.
+>>> I am in fucntion g
+print выполнился и его убрали из стека.
+Шаг исполнения 4
+| 		|
+| 		|
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| print		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| f		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| module	|
+┕╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┙
+>>> I am in fucntion f
+print выполнился и его убрали из стека.
+Шаг исполнения 5
+| 		|
+| 		|
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| print		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| module	|
+┕╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┙
+>>> I am outside of any function
+print выполнился и его убрали из стека.
+
+Отобразим стек с помощью списка
+x = [1, 2, 3]
+
+x.append(4)
+x.append(5)
+
+print(x)
+
+top = x.pop()
+print(top)
+print(x)
+
+top = x.pop()
+print(top)
+print(x)
+>>> [1, 2, 3, 4, 5]
+>>> 5
+>>> [1, 2, 3, 4]
+>>> 4
+>>> [1, 2, 3]
+
+Функции: возращаемое значение
+
+► Для возращения значения в языке Python используется конструкция return
+► После return функция далее не выполняется
+► Функции необязательно что-то возращать: если в функции используют "пустой" return или его вообще нет, то вернётся None
+Пример:
+x = print(4)
+print(x)
+>>> 4
+>>> None
+print(type(print(x)))
+>>> <class 'NoneType'>
+print(x is None)
+>>> True
+
+Функции: примеры вызова функций
+
+def print_ab(a, b):
+    print(a)
+    print(b)
+
+# CORRECT WAYS TO CALL A FUNCTION
+print_ab(10, 20)
+print_ab(a=10, b=20)
+# keyword arguments always after non-keyword arguments
+print_ab(10, b=20)
+
+lst = [10, 20]
+print_ab(*lst)  # == print_ab(lst[0], lst[1])
+
+args = {'a': 10, 'b': 20}
+print_ab(**args)  # == print_ab(a=args['a'], 
+		  #		b=args['b'])
+
+Рекурсивные функции
+
+def fib(x):
+    if x == 0 or x == 1:
+        return 1
+    else:
+        return fib(x - 1) + fib(x - 2)
+y = fib(5)
+print(y)
+>>> 8
+ #&:%# Пространства имён и области видимости #&:%# 
+● Name space -> Пространство имён
+
+Первое пространсво имён создаётся при запуске интерпритатора и имеет имя builtins: int, str, float, bool, min, abs, id...
+Второе имя main	имеет те имена которые объявлены на самом верхнем уровне кода:
+| a = 1 ╍╍╍╍╍╍╍╍╍► main
+|		     ▲
+|	┍╍╍╍╍╍╍╍╍╍╍╍╍┙
+|	|
+| def fun(...)
+|    x = 1 ╍╍╍╍╍╍► local name space
+
+# В стеке вызовов: module ╍╍╍► global name space
+# Каждая функция создаёт свой local name space
+
+● Scope -> Область видимости
+
+Local
+Enclosing
+Global
+Builtins
+
+global	╭	   def b():
+scope	│ b scope-> ╭   x = 31
+----->	│	    │
+	│	    │   def a():
+	│	    │       print(x)	) <- a scope
+	│	    ╰   a()
+    	│	
+	╰	   b()
+
+Интерпретатор попытается найти имя принт и найдёт его в builtins, по следующей схеме поиска:
+a scope -> (enclosing) b scope -> global scope -> builtins
+Затем тем же путем поищет "x":
+a scope -> b scope
+>>> 31
+
+global	╭
+scope	│ def a():
+----->	│     print(x)	) <- a scope
+	│ 
+	│ def b():
+	│     x = 31	╮ <- b scope
+	│     a()	╯
+	│ 
+	╰ b()
+
+Не может найти "x", так как путь не лежит через b scope.
+builtins
+   |
+   V
+global -> b scope
+|
+V
+a scope
+>>> NameError: name 'x' is not defined
+
+● Использывание global и nonlocal
+
+ok_status = True
+vowels = ["a", "u", "i", "e", "o"]
+
+Пример 1:
+def check(word):
+    global ok_status
+    for vowel in vowels:
+        if vowel in word:
+            return True
+
+    ok_status = False
+    return False
+
+print(check("abacaba"))
+print(ok_status)
+print(check("www"))
+print(ok_status)
+>>> True
+>>> True
+>>> False
+>>> False
+
+Пример 2:
+def f():
+    ok_status = True
+    vowels = ["a", "u", "i", "e", "o"]
+
+    def check(word):
+        global ok_status
+        for vowel in vowels:
+            if vowel in word:
+                return True
+
+        ok_status = False
+        return False
+
+    print(check("abacaba"))
+    print(ok_status)
+    print(check("www"))
+    print(ok_status)  # ok_status is not global
+
+f()
+print(ok_status)  # global ok_status
+>>> True
+>>> True
+>>> False
+>>> True
+>>> False
+
+Пример 3:
+def f():
+    ok_status = True
+    vowels = ["a", "u", "i", "e", "o"]
+
+    def check(word):
+        nonlocal ok_status
+        for vowel in vowels:
+            if vowel in word:
+                return True
+
+        ok_status = False
+        return False
+
+    print(check("abacaba"))
+    print(ok_status)
+    print(check("www"))
+    print(ok_status)
+
+f()
+print(ok_status)
+>>> True
+>>> True
+>>> False
+>>> False
+>>> NameError: name 'ok_status' is not defined
+
+| 		|
+| 		|
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| check()	|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| f()		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| global	|
+┕╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┙
+# nonlocal сразу начинает искать не у себя, а по пути до global и как только найдёт, перестаёт искать. Тоесть находит ближайшее пространство имён.
+| 		|
+| 		|
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| 		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+|/c/h/e/c/k/(/)/|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+| f()		|
+┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┥
+|/g/l/o/b/a/l/	|
+┕╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┙
+ #&:%# Введение в классы #&:%# 
+Классы так же как и функции имеют своё пространство имён(name space).
+
+class MyClass:
+    a = 10
+
+    def func(self):
+        print("Hello")
+
+print(MyClass.a)
+print(MyClass.func)
+>>> 10
+>>> <function MyClass.func at 0x034CC078>
+
+class MyClass:
+    a = 10
+
+    def func(self):
+        print("Hello")
+
+x = MyClass()
+print(type(x))
+print(type(MyClass))
+>>> <class '__main__.MyClass'>
+>>> <class 'type'>
+
+Класс гарантирует, что:
+1) можно вызвать его как конструктор MyClass()
+2) можно обратится к его атрибутам MyClass.a
+
+class Counter:
+    pass
+
+Counter  # (class object) создаёт в оперативной памяти объект -> [class Counter]
+x = Counter()  # (x is instance object) создаёт в оперативной памяти экземпляр -> [Instance]
+x.count = 0  # создаём пространство имён(name space) и новый атрибут у объекта экземпляра(Instance) -> [Instance: 'count' -> [0]]
+x.count += 1  # обратиться к атрибуту у объекта экземпляра, создать новую ссылку и "забывыть" старую ссылку на ноль -> [Instance: 'count' -> [1]]
+
+class Counter:
+    def __init__(self, start=0):
+        self.count = start
+
+Counter  # class object
+x10 = Counter(10)  # Counter -> self | start -> 10
+x = Counter()  # x is instance object
+print(x.count)
+x.count += 1
+print(x10.count)
+>>> 0
+>>> 10
+
+class Counter:
+    def __init__(self):
+        self.count = 0
+
+    def inc(self):
+        self.count += 1
+
+    def reset(self):
+        self.count = 0
+
+Counter  # class object
+x = Counter()
+x.inc()  # == Counter.inc(x)
+print(x.count)
+x.reset()
+print(x.count)
+# [Counter "__init__", "inc", "reset"] -> [x: Counter "count" -> 0]
+# Поиск "inc" начнётся с екземпляров: в name space x нету "inc", а в name space класса есть. Вызов x.inc() на самом деле вызывает Counter.inc(self) и подставляет x в качестве аргумента self -> Counter.inc(x)
+print(x.inc)
+print(Counter.inc(x))
+print(x.inc() is Counter.inc(x))
+>>> 1
+>>> 0
+# x.inc -> это связанный метод(Bound Method)
+>>> <bound method Counter.inc of <__main__.Counter object at 0x00FADCF0>>
+>>> None
+>>> True
+ #&:%# Наследование классов #&:%# 
+► Наследование
+
+class MyList(list):
+    def even_lenght(self):
+        return len(self) % 2 == 0
+
+x = MyList()
+print(x)
+x.extend([1, 2, 3, 4, 5])  # extend: stacks one list with another list
+print(x)
+print(x.even_lenght())
+x.append(6)
+print(x.even_lenght())
+>>> []
+>>> [1, 2, 3, 4, 5]
+>>> False
+>>> True
+# Наследование классов позволило в три строки создать новый метод для листа.
+print(isinstance(x, list))  # Можем ли мы использывать x в качестве обычного листа?
+>>> True
+
+► Множественное наследование
+
+class D: pass
+class E: pass
+class B(D, E): pass
+class C: pass
+class A(B, C): pass
+
+print(issubclass(A, A))  # классы могут наследовать сами себя
+print(issubclass(C, D))  # C не имеет наследника D
+print(issubclass(A, D))  # A имеет наследника D
+print(issubclass(C, object))  # object является наследником ненаследуемых классов
+print(issubclass(object, C))  # object не имеет наследников
+>>> True
+>>> False
+>>> True
+>>> True
+>>> False
+
+	 object
+	▲  ▲  ▲
+	│  │  │
+	D  E  │
+	▲  ▲  │
+	│  │  │
+	B ━┙  C
+	▲     ▲
+	│     │
+	┕━━A━━┙
+
+x = A()
+print(isinstance(x, A))
+print(isinstance(x, B))
+print(isinstance(x, object))
+print(isinstance(x, str))
+>>> True
+>>> True
+>>> True
+>>> False
+
+print(A.mro())  # method resolution order (порядок разрешения методов)
+>>> [<class '__main__.A'>, <class '__main__.B'>, <class '__main__.D'>, <class '__main__.E'>, <class '__main__.C'>, <class 'object'>]
+
+class EvenLenghtMixin:
+    def even_lenght(self):
+        return len(self) % 2 == 0
+
+class Mylist(list, EvenLenghtMixin):
+    pass
+
+print(MyList.mro())
+print(x)
+x = MyList([1, 2, 3])
+print(x.even_lenght())
+x.append(4)
+print(x.even_lenght())
+>>> [<class '__main__.MyList'>, <class 'list'>, <class '__main__.EvenLenghtMixin'>, <class 'object'>]
+>>> False
+>>> True
+# Такая запись может использывать класс EvenLenghtMixin сразу для нескольких классов:
+
+class EvenLenghtMixin:
+    def even_lenght(self):
+        return len(self) % 2 == 0
+
+class Mylist(list, EvenLenghtMixin):
+    pass
+
+class MyDict(dict, EvenLenghtMixin):
+    pass
+
+x = MyDict
+x["key"] = "value"
+x["another key"] = "another value"
+print(x.even_lenght())
+>>> True
+
+► Метод super
+
+class EvenLenghtMixin:
+    def even_lenght(self):
+        return len(self) % 2 == 0
+
+class MyList(list, EvenLenghtMixin):
+    def pop(self):
+        x = super(MyList, self).pop()  # еквивалентен: x = list.pop(self)
+        print("Last value is", x)
+        return x
+
+ml = MyList([1, 2, 4, 17])
+z = ml.pop()
+print(z)
+print(ml)
+# Функция супер принимает два аргумента: первое - это класс, наследников которого нужно проверить, а второй - это объект на котором нужно использывать метод(в данном случае pop())
+>>> Last value is 17
+>>> 17
+>>> [1, 2, 4]
+ #&:%# Ошибки и исключения #&:%# 
+Есть всего два типа ошибок: синтаксис и исключения
+
+► Синтаксис
+
+Пример 1
+
+print("This line is executed")
+
+class EvenLenghtMixin:
+    def even_lenght(self):
+        return len(self) % 2 == 0
+
+class MyList(list, EvenLenghtMixin)  # отсутствует ":"
+    pass
+
+ml = MyList([1, 12, 4, 17, 3])
+ml.sort()
+print(ml)
+
+>>> SyntaxError: invalid syntax
+# Файл не начнёт своё исполнение, пока в ней есть синтаксическая ошибка.
+
+► Исключения
+
+Пример 2
+
+print("This line is executed")
+
+class EvenLenghtMixin:
+    def even_lenght(self):
+        return len(self) % 2 == 0
+
+class MyList(list, EvenLenghtMixin):
+    pass
+
+ml = MyList([1, "abc", 4, 17, 3])
+ml.sort()
+print(ml)
+
+>>> This line is executed
+>>> TypeError: '<' not supported between instances of 'str' and 'int'
+# Ошибка TypeError означает, что допущена ошибка в несоответсвии типа данных. Также важно то, что метод print исполнился в отличии от первого примера.
+
+Пример 3
+
+def f():
+    x = [1 ,2 ,3]
+    print(x[4])
+
+f()
+
+# Полная запись ошибки:
+>>> Traceback (most recent call last):
+      File "C:/Users/user/PycharmProjects/Home/Useful-programs/test.py", line 6, in <module>  # Путь к ошибке
+        f()
+      File "C:/Users/user/PycharmProjects/Home/Useful-programs/test.py", line 4, in f  # Ошибка в функции f
+        print(x[4])
+    IndexError: list index out of range  # Индекс листа в не диапозона
+
+► Ловить исключения
+
+Пример 4
+
+try:
+    x = [1, 2, "hello", 7]
+    x.sort()
+    print(x)
+except TypeError:  # что делать, если такая ошибка возникла
+    print("Type error :(")
+
+print("I can catch")
+
+>>> Type error :(
+>>> I can catch
+# try: except "ловит" ошибку.
+
+Пример 5
+
+def f(x, y):
+    try:
+        return x / y
+    except TypeError:
+        print("Type error")
+
+print(f(5, 0))
+
+>>> ZeroDivisionError: division by zero  # арифметическая ошибка
+
+Пример 6
+
+def f(x, y):
+    try:
+        return x / y
+    except TypeError:
+        print("Type error")
+    except ZeroDivisionError:
+        print("Zero division :(")
+print(f(5, 0))
+
+>>> Zero division :(
+>>> None
+
+Пример 7
+
+def f(x, y):
+    try:
+        return x / y
+    except TypeError:
+        print("Type error")
+
+try:
+    print(f(5, 0))
+except ZeroDivisionError:
+    print("Zero division :(")
+>>> Zero division :(
+
+Пример 8
+
+def f(x, y):
+    try:
+        return x / y
+    except (TypeError, ZeroDivisionError):
+        print("Error")
+
+print(f(5, 0))
+print(f(5, []))
+
+>>> Error
+>>> None
+
+Пример 9
+
+def f(x, y):
+    try:
+        return x / y
+    except (TypeError, ZeroDivisionError) as e:
+        print(type(e))
+        print(e)
+        print(e.args)
+
+print(f(5, 0))
+print(f(5, []))
+
+>>> <class 'ZeroDivisionError'>
+    division by zero
+    ('division by zero',)
+    None
+    <class 'TypeError'>
+    unsupported operand type(s) for /: 'int' and 'list'
+    ("unsupported operand type(s) for /: 'int' and 'list'",)
+    None
+
+Пример 10
+
+def f(x, y):
+    try:
+        return x / y
+    except:
+            print("Error :(")
+
+print(f(5, 0))
+print(f(5, []))
+
+>>> Error :(
+>>> None
+>>> Error :(
+>>> None
+
+Пример 11
+
+try:
+    15 / 0
+    # e
+except ZeroDivisionError:  # isinstance(e, ZeroDivisionErroe) == True
+    print("Division by zero")
+
+print(ZeroDivisionError.mro())
+
+>>> Division by zero
+>>> [<class 'ZeroDivisionError'>, <class 'ArithmeticError'>, <class 'Exception'>, <class 'BaseException'>, <class 'object'>]
+
+Пример 12
+
+try:
+    15 / 0
+    # e
+except ArithmeticError:  # isinstance(e, ZeroDivisionErroe) == True
+    print("arithmetic error :(")
+
+print(ZeroDivisionError.mro())
+
+>>> arithmetic error :(
+>>> [<class 'ZeroDivisionError'>, <class 'ArithmeticError'>, <class 'Exception'>, <class 'BaseException'>, <class 'object'>]
+
+Пример 13
+
+try:
+    15 / 0
+    # e
+except ArithmeticError:  # isinstance(e, ZeroDivisionErroe) == True
+    print("arithmetic error")
+except ZeroDivisionError:
+    print("zero division")
+
+>>> arithmetic error
+# Последний метод print не использывается, так как ZeroDivisionError является предком ArithmeticError.
+
+Пример 14
+
+def divide(x, y):
+    try:
+        result = x / y
+    except ZeroDivisionError:
+        print("division by zero")
+    else:
+        print("result is", result)
+    finally:
+        print("finally")
+
+divide(2 ,1)
+divide(2, 0)
+divide(2, [])
+
+>>> result is 2.0
+>>> finally
+>>> division by zero
+>>> finally
+>>> finally
+>>> Traceback (most recent call last):
+      File "C:/Users/user/PycharmProjects/Home/Useful-programs/test.py", line 14, in <module>
+        divide(2, [])
+      File "C:/Users/user/PycharmProjects/Home/Useful-programs/test.py", line 4, in divide
+        result = x / y
+    TypeError: unsupported operand type(s) for /: 'int' and 'list'
+
+► Кидать исключения
+
+Пример 15
+
+def greet(name):
+    if name[0].isupper():
+        return "Hello, " + name
+    else:
+        raise ValueError(name + " is inappropriate name")
+
+print(greet("Anton"))
+print(greet("anton"))
+
+>>> Hello, Anton
+>>> ValueError: anton is inappropriate name
+
+Пример 16
+
+class BadName(Exception):
+    pass
+
+def greet(name):
+    if name[0].isupper():
+        return "Hello, " + name
+    else:
+        raise BadName(name + " is inappropriate name")
+
+print(greet("Anton"))
+print(greet("anton"))
+
+>>> Hello, Anton
+>>> __main__.BadName: anton is inappropriate name
+ #&:%# Работа с кодом: модули и импорт #&:%# 
+
+Пример 1
+
+┅fib.py
+┅
+def fib(k):
+    if k == 0 or k == 1:
+        return 1
+    else:
+        return fib(k - 1) + fib(k - 2)
+
+if __name__ == "__main__":  # Ограничить код, который не нужно исполнять при импорте этого файла.
+    print(__name__)
+    print(fib(31))
+
+┅import_lesson.py
+┅
+import fib
+print(fib.fib(5))
+
+# Запуск fib.py
+>>> __main__
+>>> 2178309
+
+# Запуск import_lesson.py
+>>> 8
+
+Пример 2
+
+┅import_lesson.py
+┅
+import sys
+
+print(type(sys.modules))
+print(sys.modules)
+
+import check
+
+print(sys.modules)
+print(type(check))
+print(id(check))
+
+import check  # Функция print в нутри check.py не будет исполнена дважды из этого следует, что любой модуль будет исполнен единожды.
+print(id(check))
+
+┅check.py
+┅
+print("check")
+
+>>> <class 'dict'>
+>>> {'sys': <module 'sys' (built-in)>, 'builtins': <module 'builtins' (built-in)>, '_frozen_importlib': <module 'importlib._bootstrap' (frozen)>, '_imp': <module '_imp' (built-in)>, '_thread': <module '_thread' (built-in)>, '_warnings': <module '_warnings' (built-in)>, '_weakref': <module '_weakref' (built-in)>, 'zipimport': <module 'zipimport' (built-in)>, '_frozen_importlib_external': <module 'importlib._bootstrap_external' (frozen)>, '_io': <module 'io' (built-in)>, 'marshal': <module 'marshal' (built-in)>, 'nt': <module 'nt' (built-in)>, 'winreg': <module 'winreg' (built-in)>, 'encodings': <module 'encodings' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\encodings\\__init__.py'>, 'codecs': <module 'codecs' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\codecs.py'>, '_codecs': <module '_codecs' (built-in)>, 'encodings.aliases': <module 'encodings.aliases' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\encodings\\aliases.py'>, 'encodings.utf_8': <module 'encodings.utf_8' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\encodings\\utf_8.py'>, '_signal': <module '_signal' (built-in)>, '__main__': <module '__main__' from 'C:/Users/user/PycharmProjects/Home/Useful-programs/test.py'>, 'encodings.latin_1': <module 'encodings.latin_1' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\encodings\\latin_1.py'>, 'io': <module 'io' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\io.py'>, 'abc': <module 'abc' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\abc.py'>, '_abc': <module '_abc' (built-in)>, 'site': <module 'site' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\site.py'>, 'os': <module 'os' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\os.py'>, 'stat': <module 'stat' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\stat.py'>, '_stat': <module '_stat' (built-in)>, 'ntpath': <module 'ntpath' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\ntpath.py'>, 'genericpath': <module 'genericpath' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\genericpath.py'>, 'os.path': <module 'ntpath' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\ntpath.py'>, '_collections_abc': <module '_collections_abc' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\_collections_abc.py'>, '_sitebuiltins': <module '_sitebuiltins' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\_sitebuiltins.py'>, '_bootlocale': <module '_bootlocale' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\_bootlocale.py'>, '_locale': <module '_locale' (built-in)>, 'encodings.cp1251': <module 'encodings.cp1251' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\encodings\\cp1251.py'>, 'types': <module 'types' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\types.py'>, 'importlib': <module 'importlib' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\importlib\\__init__.py'>, 'importlib._bootstrap': <module 'importlib._bootstrap' (frozen)>, 'importlib._bootstrap_external': <module 'importlib._bootstrap_external' (frozen)>, 'warnings': <module 'warnings' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\warnings.py'>, 'importlib.util': <module 'importlib.util' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\importlib\\util.py'>, 'importlib.abc': <module 'importlib.abc' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\importlib\\abc.py'>, 'importlib.machinery': <module 'importlib.machinery' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\importlib\\machinery.py'>, 'contextlib': <module 'contextlib' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\contextlib.py'>, 'collections': <module 'collections' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\collections\\__init__.py'>, 'operator': <module 'operator' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\operator.py'>, '_operator': <module '_operator' (built-in)>, 'keyword': <module 'keyword' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\keyword.py'>, 'heapq': <module 'heapq' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\heapq.py'>, '_heapq': <module '_heapq' (built-in)>, 'itertools': <module 'itertools' (built-in)>, 'reprlib': <module 'reprlib' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\reprlib.py'>, '_collections': <module '_collections' (built-in)>, 'functools': <module 'functools' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\functools.py'>, '_functools': <module '_functools' (built-in)>, 'mpl_toolkits': <module 'mpl_toolkits' (namespace)>}
+>>> check
+>>> {'sys': <module 'sys' (built-in)>, 'builtins': <module 'builtins' (built-in)>, '_frozen_importlib': <module 'importlib._bootstrap' (frozen)>, '_imp': <module '_imp' (built-in)>, '_thread': <module '_thread' (built-in)>, '_warnings': <module '_warnings' (built-in)>, '_weakref': <module '_weakref' (built-in)>, 'zipimport': <module 'zipimport' (built-in)>, '_frozen_importlib_external': <module 'importlib._bootstrap_external' (frozen)>, '_io': <module 'io' (built-in)>, 'marshal': <module 'marshal' (built-in)>, 'nt': <module 'nt' (built-in)>, 'winreg': <module 'winreg' (built-in)>, 'encodings': <module 'encodings' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\encodings\\__init__.py'>, 'codecs': <module 'codecs' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\codecs.py'>, '_codecs': <module '_codecs' (built-in)>, 'encodings.aliases': <module 'encodings.aliases' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\encodings\\aliases.py'>, 'encodings.utf_8': <module 'encodings.utf_8' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\encodings\\utf_8.py'>, '_signal': <module '_signal' (built-in)>, '__main__': <module '__main__' from 'C:/Users/user/PycharmProjects/Home/Useful-programs/test.py'>, 'encodings.latin_1': <module 'encodings.latin_1' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\encodings\\latin_1.py'>, 'io': <module 'io' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\io.py'>, 'abc': <module 'abc' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\abc.py'>, '_abc': <module '_abc' (built-in)>, 'site': <module 'site' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\site.py'>, 'os': <module 'os' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\os.py'>, 'stat': <module 'stat' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\stat.py'>, '_stat': <module '_stat' (built-in)>, 'ntpath': <module 'ntpath' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\ntpath.py'>, 'genericpath': <module 'genericpath' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\genericpath.py'>, 'os.path': <module 'ntpath' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\ntpath.py'>, '_collections_abc': <module '_collections_abc' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\_collections_abc.py'>, '_sitebuiltins': <module '_sitebuiltins' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\_sitebuiltins.py'>, '_bootlocale': <module '_bootlocale' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\_bootlocale.py'>, '_locale': <module '_locale' (built-in)>, 'encodings.cp1251': <module 'encodings.cp1251' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\encodings\\cp1251.py'>, 'types': <module 'types' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\types.py'>, 'importlib': <module 'importlib' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\importlib\\__init__.py'>, 'importlib._bootstrap': <module 'importlib._bootstrap' (frozen)>, 'importlib._bootstrap_external': <module 'importlib._bootstrap_external' (frozen)>, 'warnings': <module 'warnings' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\warnings.py'>, 'importlib.util': <module 'importlib.util' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\importlib\\util.py'>, 'importlib.abc': <module 'importlib.abc' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\importlib\\abc.py'>, 'importlib.machinery': <module 'importlib.machinery' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\importlib\\machinery.py'>, 'contextlib': <module 'contextlib' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\contextlib.py'>, 'collections': <module 'collections' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\collections\\__init__.py'>, 'operator': <module 'operator' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\operator.py'>, '_operator': <module '_operator' (built-in)>, 'keyword': <module 'keyword' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\keyword.py'>, 'heapq': <module 'heapq' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\heapq.py'>, '_heapq': <module '_heapq' (built-in)>, 'itertools': <module 'itertools' (built-in)>, 'reprlib': <module 'reprlib' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\reprlib.py'>, '_collections': <module '_collections' (built-in)>, 'functools': <module 'functools' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\functools.py'>, '_functools': <module '_functools' (built-in)>, 'mpl_toolkits': <module 'mpl_toolkits' (namespace)>, 'check': <module 'check' from 'C:\\Users\\user\\PycharmProjects\\Home\\Useful-programs\\check.py'>}
+>>> <class 'module'>
+>>> 3710672
+>>> 3710672
+
+Пример 3
+
+# Показывает порядок поиска пути имени импортируемого модуля:
+import sys
+
+for path in sys.path:
+    print(path)
+
+>>> C:\Users\user\PycharmProjects\Home\Useful-programs
+    C:\Users\user\PycharmProjects\Home
+    C:\Users\user\AppData\Local\Programs\Python\Python37-32\python37.zip
+    C:\Users\user\AppData\Local\Programs\Python\Python37-32\DLLs
+    C:\Users\user\AppData\Local\Programs\Python\Python37-32\lib
+    C:\Users\user\AppData\Local\Programs\Python\Python37-32
+    C:\Users\user\AppData\Roaming\Python\Python37\site-packages
+    C:\Users\user\AppData\Local\Programs\Python\Python37-32\lib\site-packages
+
+Пример 4
+
+┅exceptions.py
+┅
+class BadName(Exception):
+    pass
+
+def greet(name):
+    if name[0].isupper():
+        return "Hello, " + name
+    else:
+        raise BadName(name + " is inappropriate name")
+
+┅import_lesson.py
+┅
+from exceptions import BadName, greet as exc_greet  # если имена совпали, то можно поменять
+
+print(BadName)
+
+def greet():
+    print("Greetings!")
+
+greet()
+print(exc_greet("Student"))
+
+>>> <class 'exceptions.BadName'>
+>>> Greetings!
+>>> Hello, Student
+
+# Что бы импортировать все имена из модуля exceptions: from exceptions import *
+
+Пример 5
+
+GREETING = "Hello, "
+
+┅exceptions.py
+┅
+class BadName(Exception):
+    pass
+
+def greet(name):
+    if name[0].isupper():
+        return GREETING + name
+    else:
+        raise BadName(name + " is inappropriate name")
+
+__all__ = ["BadName", "greet"]  # будут импортироватся все эти имена при использывании звёздочки
+
+┅import_lesson.py
+┅
+from exceptions import *
+
+print(GRETTING)
+print(BadName)
+print(greet("Student"))
+
+>>> NameError: name 'GRETTING' is not defined  # имя GRITTING не было указано в конструкции __all__
+
+# Вместо конструкции __all__ можно использывать нижнее подчёркивание:
+
+Пример 6
+
+_GREETING = "Hello, "
+
+┅exceptions.py
+┅
+class BadName(Exception):
+    pass
+
+def greet(name):
+    if name[0].isupper():
+        return _GREETING + name
+    else:
+        raise BadName(name + " is inappropriate name")
+
+┅import_lesson.py
+┅
+from exceptions import *
+
+print(_GRETTING)
+print(BadName)
+print(greet("Student"))
+
+>>> NameError: name '_GRETTING' is not defined
+ #&:%# Итераторы и генераторы #&:%# 
+► Итераторы
+
+Пример 1
+
+for i in book:
+    print(i)
+
+it = iter(book)
+while True:
+    try:
+        i = next(it)
+        print(i)
+    except StopIteration:
+        break
+
+>>> title
+>>> author
+>>> year_published
+>>> title
+>>> author
+>>> year_published
+
+Пример 2
+
+from random import random
+
+class RandomIterator:
+    def __iter__(self):  # что бы перечислить елементы, должен быть определён метод __iter__, который возвращает итератор
+        return self
+
+    def __init__(self, k):
+        self.k = k
+        self.i = 0
+
+    def __next__(self):  # что бы объект являлся итератором, у него должен быть определён метод __next__
+        if self.i < self.k:
+            self.i += 1
+            return random()
+        else:
+            raise StopIteration
+
+for x in RandomIterator(4):
+    print(x)
+
+>>> 0.26196678159248166
+>>> 0.15124727002936866
+>>> 0.3129846930885072
+>>> 0.6110052239684942
+
+Пример 3
+
+class DoubleElementListIterator:
+
+    def __init__(self, lst):
+        self.lst = lst
+        self.i = 0
+
+    def __next__(self):
+        if self.i < len(self.lst):
+            self.i += 2
+            return self.lst[self.i - 2], self.lst[self.i - 1]
+        else:
+            raise StopIteration
+
+class MyList(list):
+    # pass -> может вести себя как обычный итератор
+    def __iter__(self):
+        return DoubleElementListIterator(self)
+
+for pair in MyList([1, 2, 3, 4, 5]):
+    print(pair)
+
+>>> (1, 2)
+>>> (3, 4)
+>>> IndexError: list index out of range
+
+► Генераторы
+
+Пример 4
+
+# Пример 4 полностью эквивалентен примеру 2
+from random import random
+
+def random_generator(k):
+    for i in range(k):
+        yield random()
+
+gen = random_generator(3)
+print(type(gen))
+for i in gen:
+    print(i)
+
+>>> <class 'generator'>
+>>> 0.7457202361881937
+>>> 0.21167837596940187
+>>> 0.36436698985845906
+
+Пример 5
+
+def simple_gen():
+    print("Checkpoint 1")
+    yield 1
+    print("Checkpoint 2")
+    yield 2
+    print("Checkpoint 3")
+
+gen = simple_gen()
+x = next(gen)
+print(x)
+y = next(gen)
+print(y)
+z = next(gen)
+
+>>> Checkpoint 1
+>>> 1
+>>> Checkpoint 2
+>>> 2
+>>> Checkpoint 3
+>>> StopIteration
+
+Пример 6
+
+def simple_gen():
+    print("Checkpoint 1")
+    yield 1
+    print("Checkpoint 2")
+    return "No more elements"
+    yield 2
+    print("Checkpoint 3")
+
+gen = simple_gen()
+x = next(gen)
+print(x)
+y = next(gen)
+print(y)
+z = next(gen)
+
+>>> Checkpoint 1
+>>> 1
+>>> Checkpoint 2
+>>> StopIteration: No more elements
+
+► list comprehension
+
+# Пример 1 эквивалентен примеру 2:
+
+Пример 1
+
+x = [-2, -1, 0, 1, 2]
+y = []
+for i in x:
+    y.append(i * i)
+print(y)
+
+>>> [4, 1, 0, 1, 4]
+
+Пример 2
+
+x = [-2, -1, 0, 1, 2]
+y = [i * i for i in x if i > 0]
+print(y)
+
+>>> [4, 1, 0, 1, 4]
+
+# Пример 3 эквивалентен примеру 4:
+
+Пример 3
+
+z = [(x, y) for x in range(3) for y in range(3) if y >= x]
+
+>>> [(0, 0), (0, 1), (0, 2), (1, 1), (1, 2), (2, 2)]
+
+Пример 4
+
+z = []
+for x in range(3):
+    for y in range(3):
+        if y >= x:
+            z.append((x, y))
+print(z)
+
+>>> [(0, 0), (0, 1), (0, 2), (1, 1), (1, 2), (2, 2)]
+
+# Если такую конструкцию поместить в круглые скобки вместо квадратных, то получится генератор:
+
+Пример 5
+
+z = ((x, y) for x in range(3) for y in range(3) if y >= x)
+print(z)
+print(next(z))
+print(next(z))
+
+>>> <generator object <genexpr> at 0x00778530>
+>>> (0, 0)
+>>> (0, 1)
+ #&:%# Работа с файловой системой и файлами #&:%# 
+► Чаще всего приходиться работать с текстовыми документами:
+
+# r (read) - открыть для чтения (по умолчанию)
+# w (write) - открыть для записи, содержимое файла стирается
+# a (append) - открыть для записи, запись ведётся в конец
+# b (binary) - открыть в бинарном режиме
+# t (text) - открыть в текстовом режиме (по умолчанию)
+# r+ - открыть для чтения и записи
+# w+ открыть для чтения и записи, содержимое файла стирается
+и т.д.
+f = open("test.txt", "rb")
+
+# Прочитать строку с определенным номером (например, читаем четвертую строку файла, служебные символы убираются):
+
+┅test.txt
+┅
+First line
+Second line
+Third line
+
+┅files.py
+┅
+from linecache import getline
+getline('file.txt', 4)
+
+f = open("test.txt")
+    line = line.rstrip()
+    print(repr(line))
+
+x = f.read()
+print(repr(x))
+
+f.close()
+
+>>> 'First line'
+>>> 'Second line'
+>>> 'Third line'
+>>> ''
+
+┅files.py
+┅
+# "".join() - принимает один аргумент, список строк, и он склеивает данные строки в одну, вставляя между каждыми соседними элементами списка именно ту строку от которой вызвали метод join
+f = open("test1.txt", "w")
+lines = ["Line 1", "Line 2", "Line 3"]
+contents = "\n".join(lines)
+f.write(contents)
+
+f.close
+
+# После запуска files.py:
+
+┅test1.txt
+┅
+Line 1
+Line 2
+Line 3
+
+# Копирование
+
+with open("test.txt") as f, open("test_copy.txt", "w") as w:
+    for line in f:
+        w.write(line)
+
+► Библиотека os и os.path
+
+Пример 1
+
+import os
+import os.path
+
+print(os.getcwd())  # узнать текущую папку
+print(os.listdir())  # перечислить всё, что содержится в текущей папке, в качестве аргумента можно указать папку
+print(os.path.exists("test.py"))  # узнать, существует ли файл
+
+>>> C:\Users\user\PycharmProjects\Home\Useful-programs
+>>> ['lili.py', 'MatrixResult.py', 'OpenWeather.py', 'Random.py', 'test.py', '__pycache__']
+>>> True
+
+Пример 2
+
+import os
+import os.path
+
+# Приверить, какой путь является файлом
+print(os.path.isfile("lili.py"))
+print(os.path.isfile("test_dir"))
+
+# Приверить, какой путь является директорией
+print(os.path.isdir("lili.py"))
+print(os.path.isdir("test_dir"))
+
+>>> True
+>>> False
+>>> False
+>>> True
+
+Пример 3
+
+import os
+import os.path
+
+print(os.path.abspath("test.py"))  # узнать абсолютный путь в файлу
+
+print(os.getcwd())
+os.chdir("test_dir")  # изменить директорию уровнем ниже
+print(os.getcwd())
+
+>>> C:\Users\user\PycharmProjects\Home\Useful-programs\test.py
+>>> C:\Users\user\PycharmProjects\Home\Useful-programs
+>>> C:\Users\user\PycharmProjects\Home\Useful-programs\test_dir
+
+Пример 4
+
+import os
+import os.path
+
+# Является генератором и возвращает кортеж, где первый элемент - это строковое представление текущей директории, которое рассматривается, второй элемент - это список из всех всех подпапок, который находится в данной директории, а третий - это является списком всех файлов, который есть в данной директории.
+for current_dir, dirs, files in os.walk("."):
+    print(current_dir, dirs, files)
+
+>>> . ['test_dir', '__pycache__'] ['lili.py', 'MatrixResult.py', 'OpenWeather.py', 'Random.py', 'test.py']
+    .\test_dir [] []
+    .\__pycache__ [] []
+
+Пример 5
+
+import shutil
+
+shutil.copy("test_dir/test.txt", "test_dir/test_copy.txt")  # создать копию текстового документа
+shutil.copytree("test_dir", "test_dir/test_dir")  # создать папку
+ #&:%# Работа с функциями: functool и лямбда функции #&:%# 
+► Функции в нутри функций
+
+# Является генератором, принимающим первым аргументом функцию(метод), а вторым принимает последовательность елементов и применяет функцию к каждому элементу данной последовательности.
+n, k = map(int, input().split())  # f [a, b, c, ...] -> f(a), f(b), f(c), ...
+print(n + k)
+
+# Эквивалентен такой записи:
+# n, k = (int(i) for i in x)
+# print(n + k)
+
+Пример 1
+
+n, k = map(int, [1, 50])
+print(n + k)
+
+>>> 51
+
+► Лямбда функции
+
+x = input().split()
+xs = (int(i) for i in x)
+
+# def even(x):
+#     return x % 2 == 0
+
+# Эквивалентен такой записи:
+even = lambda x: x % 2 == 0  # после лямбды сразу идут аргументы(тоже можно делать значения по умолчанию), после двоиточия идёт одно выражения возрващаемого значения
+
+evens = list(filter(even, xs))
+print(evens)
+
+Пример 2
+
+xs = (101, 102, 103, 104, 6)
+# filter(функция, последовательность)
+evens = list(filter(lambda x: x % 2 == 0, xs))
+print(evens)
+
+>>> [102, 104, 6]
+
+► Стандартные операторы в качестве функций
+
+import operator as op
+
+print(op.add(4, 5))
+print(op.mul(4, 5))
+print(op.contains([1, 2, 3], 4))  # 4 in [1, 2, 3]
+
+x = [1, 2, 3]
+f = op.itemgetter(1)  # f(x) == x[1]
+print(f(x))
+
+x = {"123" : 3}
+f = op.itemgetter("123")  # f(x) == x["123"]
+print(f(x))
+
+f = op.attrgetter("sort")  # f(x) == x.sort
+print(f([]))
+
+f = op.attrgetter("append")  # f(x) == x.append
+print(f([]))
+
+x = [1, 2, 3]
+f(x)(4)  # x.append(4)
+print(x)
+
+g = f(x)
+g(5)  # x.append(5)
+print(x)
+
+>>> 9
+>>> 20
+>>> False
+>>> 2
+>>> 3
+>>> <built-in method sort of list object at 0x00B545D0>
+>>> <built-in method append of list object at 0x00B545D0>
+>>> [1, 2, 3, 4]
+>>> [1, 2, 3, 4, 5]
+
+► functools
+
+Пример 1
+
+# В данном примере функция partial возвращает функцию, принимая первым аргументом функцию, а вторым - значение "по умолчанию".
+
+from functools import partial
+ 
+ 
+def add(x, y):
+    return x + y
+
+p_add = partial(add, 2)
+p_add(4)
+
+>>> 6
+
+Пример 2
+
+from functools import partial
+
+x = int("1101", base=2)
+print(x)
+
+# Эквивалентен такой записи:
+int_2 = partial(int, base=2)
+x = int_2("1101")
+print(x)
+
+>>> 13
+>>> 13
+ #&:%# Модуль 3: работа с текстом #&:%# 
+https://stepik.org/lesson/24469/step/1?unit=6775
+ #&:%# #@*?# #^~$# Useful_links #@*?# 2574 #&:%# ------Press Enter------ #&:%# 
+Полезные ссылки:
+# Ссылка на обзор всех методов
+https://www.w3schools.com/python/python_reference.asp
+# Ссылка на 360 популярных модулей
+https://pythonwheels.com/
+# Ссылка на все модули pip 19.2.1
+https://pypi.org/
+https://pypi.org/simple/
+ #&:%# #@*?# #^~$# Полезные_функции #@*?# 1530 #&:%# Граф #&:%# 
+Шаблоны Python - реализация графов
+
+
+Гвидо ван Россум, "Python Patterns - Implementing Graphs"
+Перевод: С.Тезадов
+
+
+Графы - это сети, состоящие из узлов, соединенных ребрами или дугами. В ориентированных графах соединения между узлами имеют направление и называются дугами; в неориентированных графах соединения не имеют направления и называются ребрами. Мы, в основном, обсудим ориентированные графы. Алгоритмы для графов включают поиск пути между двумя узлами, поиск кратчайшего пути между двумя узлами, нахождение циклов в графе (цикл - это непустой путь, соединяющий узел с самим собой), поиск пути, проходящего через все узлы (знаменитая "задача коммивояжера"), и т.д. Иногда узлы или дуги графа имеют вес или цену, ассоциированную с ними, и нас интересует нахождение пути наименьшей цены.
+
+Существует значительная литература, посвященная алгоритмам для графов, которые являются важной частью дискретной математики. Графы также имеют большое практическое применение в компьютерных алгоритмах. Очевидные примеры можно найти в управлении сетями, но примеры изобилуют и во многих прочих областях. К примеру, связь вызывающий-вызываемый в компьютерной программе можно представить как граф (в котором циклы означают рекурсию, а недостижимые узлы - "мертвый" код).
+
+Несколько языков программирования предоставляют прямую поддержку графов как типа данных, и Python не исключение. Однако, графы легко реализуются с помощью списков и словарей. Например, ниже приводится простой граф:
+
+
+    A -> B
+
+    A -> C
+
+    B -> C
+
+    B -> D
+
+    C -> D
+
+    D -> C
+
+    E -> F
+
+    F -> C
+
+У этого графа шесть узлов (A-F) и восемь дуг. Он может быть представлен посредством следующих структур данных Python:
+
+    graph = {'A': ['B', 'C'],
+
+             'B': ['C', 'D'],
+
+             'C': ['D'],
+
+             'D': ['C'],
+
+             'E': ['F'],
+
+             'F': ['C']}
+
+Это словарь, чьи ключи являются узлами графа. Для каждого ключа соответствующее значение - это список, содержащий узлы, соединенные прямой дугой из данного узла. Это настолько просто, насколько возможно (даже еще проще, ведь узлы могли быть представлены числами, а не именами, но имена более удобны и могут быть легко заменены на несущие больше информации, такие как названия городов).
+Давайте напишем простую функцию, определяющую путь между двумя узлами. Она будет принимать граф, начальный и конечный узлы в качестве аргументов. Возвращать же она будет список узлов (включая начальный и конечный) входящих в искомый путь. Если никакого пути не может быть найдено, она вернет None. Один и тот же узел будет входить не более одного раза в возвращаемый путь (т.е. он не содержит циклов). Алгоритм использует важную технику, называемую "бектрекинг" (backtracking): она пробует все возможности прохода перед тем, как находит решение.
+
+
+    def find_path(graph, start, end, path=[]):
+
+        path = path + [start]
+
+        if start == end:
+
+            return path
+
+        if not graph.has_key(start):  # ошибка тут нужно: if start not in graph.keys():
+
+            return None
+
+        for node in graph[start]:
+
+            if node not in path:
+
+                newpath = find_path(graph, node, end, path)
+
+                if newpath: return newpath
+
+        return None
+
+Образец вызова (используя граф показанный выше):
+
+    >>> find_path(graph, 'A', 'D')
+
+    ['A', 'B', 'C', 'D']
+
+    >>> 
+
+Второй оператор 'if' необходим только в том случае, если имееются узлы, которые перечислены как концевые точки дуг, но сами не имеют выходящих дуг, и поэтому не упоминаются в графе. Такие узлы могут также включяться в граф, с пустым списком выходящих дуг, но иногда удобнее не требовать этого.
+Заметьте, что хотя пользователь вызывает find_graph() с тремя аргументами, сама себя она вызывает с четвертым аргументом: текущим путем. Значением по умолчанию этого аргумента является пустой список, '[]', означающий, что мы еще не посетили ни один узел. Данный аргумент используется для избежания циклов(первый 'if' внутри цикла 'for'). Аргумент 'path' не модифицируется: присваивание "path = path + [start]" создает новый список. Если бы вместо этого мы написали "path.append(start)", то мы модифицировали бы переменную 'path' стоящую в месте вызова, с катастрофическим результатом. (Используя тьюплы, мы могли бы быть уверены, что этого не произойдет, ценой записи "path = path + (start,)", поскольку "(start)" вовсе не одноэлементный тьюпл -- это просто выражение в скобках.)
+
+Очень просто привести эту функцию к виду, возвращающему список всех путей (без циклов) вместо возврата первого попавшегося пути:
+
+
+    def find_all_paths(graph, start, end, path=[]):
+
+        path = path + [start]
+
+        if start == end:
+
+            return [path]
+
+        if not graph.has_key(start):  # ошибка тут нужно: if start not in graph.keys():
+
+            return []
+
+        paths = []
+
+        for node in graph[start]:
+
+            if node not in path:
+
+                newpaths = find_all_paths(graph, node, end, path)
+
+                for newpath in newpaths:
+
+                    paths.append(newpath)
+
+        return paths
+
+Пример вызова:
+
+    >>> find_all_paths(graph, 'A', 'D')
+
+    [['A', 'B', 'C', 'D'], ['A', 'B', 'D'], ['A', 'C', 'D']]
+
+    >>> 
+
+Другой вариант находит наикратчайший путь:
+
+    def find_shortest_path(graph, start, end, path=[]):
+
+        path = path + [start]
+
+        if start == end:
+
+            return path
+
+        if not graph.has_key(start):  # ошибка тут нужно: if start not in graph.keys():
+
+            return None
+
+        shortest = None
+
+        for node in graph[start]:
+
+            if node not in path:
+
+                newpath = find_path(graph, node, end, path)
+
+                if newpath:
+
+                    if not shortest or len(newpath) < len(shortest):
+
+                        shortest = newpath
+
+        return shortest
+
+Запуск:
+
+    >>> find_shortest_path(graph, 'A', 'D')
+
+    ['A', 'C', 'D']
+
+    >>> 
+
+Эти функции просты почти настолько, насколько они могут быть. И все же они близки к оптимальному (для кода, написанного на Python). В следующих колонках "Шаблоны Python" я попытаюсь проанализировать их скорость работы и улучшить их исполнение ценой увеличения кода.
+Другой вариацией было бы придание большей абстракции данным: создать класс для представления графов, методы которого реализуют важные алгоритмы. Хотя этого требует желание структурного программирования, это не сделает код более эффективным. Это, на самом деле, делает проще добавление различных меток к узлам или дугам и добавление алгоритмов, использующих эти метки при счете (например, для поиска кратчайшего маршрута между двумя городами на карте). Это, кстати, также будет предметом других колонок.
+
+[Содержание] http://www.infocity.kiev.ua/prog/python/content/pytonesse_3.shtml
+ #&:%# #@*?#
